@@ -1,0 +1,16 @@
+// global imports
+// @import node_modules/vue-animate/dist/vue-animate.min.css
+
+// Vars
+$grey: rgba(246, 246, 246, 1)
+$lightblack: rgba(33, 33, 33, 1)
+$friendly: #2c3e50
+$family: 'Avenir', Helvetica, Arial, sans-serif
+$green: #42b983
+$greenhover: darken($green, 5)
+//Mixins
+=animate($who, $time, $ease-type)
+	-webkit-transition: $who $time $ease-type
+	-moz-transition: $who $time $ease-type
+	-ms-transition: $who $time $ease-type
+	transition: $who $time $ease-type
