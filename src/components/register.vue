@@ -18,6 +18,7 @@ export default {
   data () {
     return {
       entity: this.$store.state.entity,
+      pageHistory: this.$store.state.pageHistory,
       fields: {
         username: null,
         password: null,
@@ -30,7 +31,7 @@ export default {
   },
   sockets: {
     connect: function(){
-      console.log("module %s connect vue side", this.$options.name)
+      // console.log("module %s connect vue side", this.$options.name)
     },
     giveRegister(data){
       // console.log(data)
@@ -85,7 +86,10 @@ export default {
   watch: {
     '$store.state.entity': function(){
       this.entity = this.$store.state.entity
-    }
+    },
+    '$store.state.pageHistory': function(){
+      this.pageHistory = this.$store.state.pageHistory
+    },
   },
   props: {}
 }
@@ -93,7 +97,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="sass" scoped>
-@import '~@/styles/vars'
+@import 'src/styles/vars'
 .register
   display: flex
   align-items: center

@@ -56,7 +56,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="sass" scoped>
-@import '~@/styles/vars'
+@import 'src/styles/vars'
 .complex-price
   width: 800px
   max-width: 100%

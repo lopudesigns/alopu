@@ -1,7 +1,13 @@
 <template lang='pug'>
   .realm
     .posts-container
-      .posts-list all realms
+      .posts-list
+        //- thing(
+        //-   :thing=`"5a474d4e406d23392895d751"`
+        //- )
+        thing(
+          :thing=`"5a4fb5ccc2f5ef485345f8d4"`
+        )
 </template>
 
 <script>

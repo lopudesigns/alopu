@@ -20,7 +20,7 @@ export default {
   },
   sockets: {
     connect: function(){
-      console.log("module %s connect vue side", this.$options.name)
+      // console.log("module %s connect vue side", this.$options.name)
     }
   },
   created () {
@@ -53,7 +53,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="sass" scoped>
-@import '~@/styles/vars'
+@import 'src/styles/vars'
 .logout
   display: flex
   align-items: center

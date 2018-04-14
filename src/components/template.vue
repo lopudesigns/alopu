@@ -13,7 +13,7 @@ export default {
   },
   sockets: {
     connect: function(){
-      console.log("socket connect vue side")
+      // console.log("socket connect vue side")
     },
     // giveObjects(data){
     //   // console.log(data)
@@ -40,10 +40,15 @@ export default {
     // }
   },
   props: {
-
+    "siteTitle": {}
   },
   components: {
   },
+  watch: {
+    // '$store.state.entity': function(){
+    //   this.entity = this.$store.state.entity
+    // },
+  },  
   route: {
     canActivate(){
       return true
@@ -53,11 +58,10 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="sass" scoped>
-@import '~@/styles/vars'
+@import 'src/styles/vars'
 .templateO
-  width: 800px
+  width: 100%
   max-width: 100%
   overflow: hidden
-  height: 100px
-  background: $grey
+  // background: $grey
 </style>

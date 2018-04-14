@@ -1,40 +1,71 @@
 <template lang='pug'>
   .nav
+    //- .debug.art {{ nav }}
     .nav-positioner(v-if="nav")
       .brand-container
-        a(href="/").brand {{ nav.siteTitle }}
+        router-link(to="/home").brand {{nav.siteTitle}}
+          //- img(src="../assets/agoraLogoIcon.png")
       //- .debug {{ user }}
       .welcome-message-container(v-if="entity")
-        .welcome-message welcome, 
-          a(href="/self") {{ entity.username || entity.identity }}
+        .welcome-message 
+          .text welcome, {{ " " }}
+          router-link.text(to="/self")  {{ entity.username || entity.identity }},
+          .text have you seen our {{ " " }}
+          router-link.text(to="/ico") ICO?
       .actions-group-container
-        .actions-container(v-if="nav.actionGroups && nav.actionGroups.length > 0" v-for="actionsGroup in nav.actionGroups")
+        .actions-container(
+          v-if="nav.actionGroups && nav.actionGroups.length > 0" 
+          v-for="actionsGroup in nav.actionGroups"
+          )
           .action(
-            v-if="((action.auth.indexOf('user') >= 0) ? entity.auth : true) && (action.auth.indexOf('nouser') >= 0 ? !entity.auth : true)" 
+            v-if="((action.auth.indexOf('user') >= 0) ? entity.auth : true) && (action.auth.indexOf('nouser') >= 0 ? !entity.auth : true)"
             v-for="action in actionsGroup.actions"
+            :title="action.text"
             )
-            a(v-if="action.type == 'link'" :href="action.link")
+            router-link(v-if="action.type == 'link'" :to="action.link")
               .text(v-if="action.render == 'text'") {{ action.text }}
               <icon v-else-if="action.render == 'icon'" :name='action.icon'></icon>
+              img(
+                v-else-if="action.render == 'img'"
+                :src="action.src"
+                )
             <component v-else-if="action.type == 'component' && !entity.auth" :is="action.text+'-comp'"></component>
             .dropdown-container(
               v-else-if="action.type == 'dropdown'"
               @click="emit(action.action)"
               )
               .text(v-if="action.render == 'text'") {{ action.text }}
-              <icon v-else-if="action.render == 'icon'" :name='action.icon'></icon>              
+              <icon v-else-if="action.render == 'icon'" :name='action.icon'></icon>
+              img(
+                v-else-if="action.render == 'img'"
+                :src="action.src"
+                )
+            .static(
+              v-else-if="action.type == 'static' "
+              )
+              .text(v-if="action.render == 'text'") {{ action.text }}
+              <icon v-else-if="action.render == 'icon'" :name='action.icon'></icon>
+              img(
+                v-else-if="action.render == 'img'"
+                :src="action.src"
+                )
+
             //- .debug {{ action.action }}
         .actions-container(v-if="nav.actions && nav.actions.length > 0")
-          .action(v-for="action in nav.actions" v-if="((action.auth.indexOf('user') >= 0) ? entity.auth : true) && (action.auth.indexOf('nouser') >= 0 ? !entity.auth : true)")
-            a(v-if="action.type == 'link'" :href="action.link")
+          .action(
+            v-for="action in nav.actions" 
+            v-if="((action.auth.indexOf('user') >= 0) ? entity.auth : true) && (action.auth.indexOf('nouser') >= 0 ? !entity.auth : true)"
+            :title="action.text"
+            )
+            router-link(v-if="action.type == 'link'" :to="action.link")
               .text(v-if="action.render == 'text'") {{ action.text }}
               <icon v-else-if="action.render == 'icon'" :name='action.icon'></icon>
             <component v-else-if="action.type == 'component' && !entity.auth" :is="action.text+'-comp'"></component>
             .dropdown-container(v-else-if="action.type == 'dropdown'")
               .text(v-if="action.render == 'text'") {{ action.text }}
               <icon v-else-if="action.render == 'icon'" :name='action.icon'></icon>
-              
-</template> 
+
+</template>
 
 <script>
 import loginSmall from '@/components/login-small'
@@ -42,8 +73,7 @@ import loginSmall from '@/components/login-small'
 export default {
   data () {
     return {
-      nav: null,
-      uuid: this._uid,
+      nav: this.$store.state.nav,
       entity: this.$store.state.entity,
       // message: this.$store.state.entityMessage
     }
@@ -56,18 +86,17 @@ export default {
   // },
   sockets: {
     connect: function(){
-      console.log("module %s connect vue side", this.$options.name)
+      // console.log("module %s connect vue side", this.$options.name)
     },
     giveNav(data){
-      // console.log(data)
-      if(this.uuid == data.id){
-        this.nav = data.nav
+      if(this._uid == data.clientId && data.nav){
+        this.$store.commit('navSet', data.nav)
       }
     }
   },
   created () {
     this.getNav({
-      id: this.uuid,
+      clientId: this._uid,
       siteTitle: this.siteTitle
     })
     // this.$store.watch(state=>{
@@ -90,14 +119,15 @@ export default {
       this.$socket.emit('getNav', opts)
     },
     toggleSideBar(){
-      console.log('worked')
       this.eventHub.$emit('toggleSideBar')
     },
     emit(data){
       this.eventHub.$emit(data)
     }
   },
-  props: ["siteTitle"],
+  props: {
+    siteTitle: {}
+  },
   components: {
     'login-small-comp': loginSmall
   }
@@ -106,11 +136,12 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="sass" scoped>
-@import '~@/styles/vars'
+@import 'src/styles/vars'
 $navSpace: 2%
 .nav
   position: fixed
   display: flex
+  // display: hidden
   flex-direction: row
   align-items: center
   justify-content: flex-start
@@ -119,24 +150,44 @@ $navSpace: 2%
   width: 100%
   max-width: 100%
   overflow: hidden
-  height: 50px
-  background: $grey
+  height: auto
+  // alopu
+  background: rgba($grey, .85)
+  // planetexpress
+  // background: rgba($green, 1)
+  // background: linear-gradient(to bottom, rgba($green, 1), rgba($green, 0))
   z-index: 500
+  color: $white
+  .debug
+    &.art
+      color: rgba($green, .8)
   .nav-positioner
     @extend .nav
     .brand-container
       margin-left: $navSpace
       margin-right: auto
+      display: flex
+      align-items: center
+      justify-content: center
+      height: 100%
       .brand
-        text-transform: capitalize
-        font-size: 1.5rem
+        height: 100%
+        display: flex
+        align-items: center
+        justify-content: center
+        // text-transform: capitalize
+        // text-transform: uppercase
+        // font-weight: 600
+        font-size: 1.1rem
+        img
+          max-height: 30pxplanet express
     .actions-group-container
       display: flex
       align-items: center
       justify-content: center
       flex-direction: row
       margin-left: auto
-      margin-right: $navSpace
+      // margin-right: $navSpace
     .actions-container
       display: flex
       align-items: center
@@ -147,16 +198,18 @@ $navSpace: 2%
       &:first-child
         margin-left: 0px
       .action
-        margin-right: 10px
+        margin-right: 5px
         height: auto
         display: flex
         align-items: center
         justify-content: center
+        color: $white
         a
           height: auto
           display: flex
           align-items: center
           justify-content: center
+          color: $white
           // text-shadow: 1px 1px rgba(darken($green, 12), .4)
         .dropdown-container
           height: auto
@@ -166,9 +219,14 @@ $navSpace: 2%
         .fa-icon
           margin-left: 10px
           margin-right: 10px
+          color: $white
           // text-shadow: 1px 1px rgba(darken($green, 12), .4)
         .text
           margin-right: 5px
+        .static
+          img
+            height: 70px
+            // width: 35px
         &:last-child
           .text
             margin-right: 0px
@@ -181,6 +239,13 @@ $navSpace: 2%
       margin-right: auto
       margin-left: auto
       width: auto
+      .welcome-message  
+        display: flex
+        flex-flow: row
+        .text
+          padding-right: 4px
+          &.nudge-right
+            padding-left: 2px
   a
     text-decoration: none
 </style>

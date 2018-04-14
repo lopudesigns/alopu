@@ -1,11 +1,11 @@
 <template lang='pug'>
   .login-small(v-if="!entity || (entity && !entity.auth)")
     .login-form
-      input(v-model='fields.username' type="text" placeholder='username')
-      input(v-model='fields.password' placeholder='password' type='password')
+      input(v-model='fields.username' @keyup.enter="login" type="text" placeholder='username')
+      input(v-model='fields.password' @keyup.enter="login" placeholder='password' type='password')
       button(v-on:click="login" type="button") login
-      a(href="/register")
-        button(type="button") register
+      router-link(to="/register")
+        button register
     .messages-container(v-if="errMsg || feedbackMsg")
       .errMsg(v-if="errMsg") {{ errMsg }}
       .feedbackMsg(v-if="feedbackMsg") {{ feedbackMsg }}
@@ -62,6 +62,7 @@ export default {
         username: this.fields.username,
         password: this.fields.password
       }
+      console.log('emitting')
       this.$socket.emit('login', credentials)
     },
     clearFields(){
@@ -81,7 +82,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="sass" scoped>
-@import '~@/styles/vars'
+@import 'src/styles/vars'
 .login-small
   width: auto
   height: auto

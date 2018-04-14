@@ -2,28 +2,127 @@
   .sidebar(:class="{ closed: optIn('closed') }")
     .sidebar-positioner
       //- .brand-container
-        a(href="/").brand {{ sidebar.siteTitle }}
-      //- .debug {{ entity }}
-      //- .welcome-message-container(v-if="entity")
-      //-   .welcome-message welcome, 
-      //-     a(href="/self") {{ entity.username || entity.identity }}
+      //-   a(href="/").brand {{ sidebar.siteTitle }}
+      .welcome-message-container(v-if="entity")
+        .welcome-message welcome,
+          a(href="/self") {{ entity.username || entity.identity }}
       .inventory-list
-        inventory(
-          :inventory='{_id: entity.inventory._id ? entity.inventory._id : entity.inventory}'
-          inventoryMessage="Your inventory"
-          inventoryFeedback="This is your own inventory, it's empty at the moment"
-          :noTitle="false"
-          type="userInventory" 
-          :count=40 
-          :options="['addable', 'put-last', 'owner-root', 'owner-only']" 
-          :resourceOptions="['icon', 'inventory-item']" 
-          :newResourceOptions="['icon', 'editing', 'inventory-item']"
+        //- thing(
+          :thing=`{
+            title: 'Your Inventory',
+            description: 'Somethings description..',
+            properties: [
+              {
+                title: 'options',
+                names: ['property'],
+                list: [
+                  //- 'show options',
+                  //- 'show properties',
+                  'focused',
+                  //- 'editing',
+                  'inventory mode',
+                  'show inventory',
+                  //- 'slotted',
+                  //- 'show slots',
+                  //- 'shrink slot icons',
+                  //- 'generate slots',
+                  //- 'addable',
+                  //- 'put-first',
+                  'put new things first',
+                  'dont load childrens children',
+                  'put addable last',
+                  'hide title',
+                  'properties not addable',
+                  'holo mode'
+                  ],
+                type: Array,
+                properties: [
+                  {
+                    title: 'options',
+                    names: ['property'],
+                    list: [
+                      'show value'
+                    ]
+                  }
+                ]
+              },
+              {
+                title: 'some number',
+                names: ['property'],
+                Number: 5,
+                type: Number,
+                properties: [
+                  {
+                    title: 'options',
+                    names: ['property'],
+                    list: [
+                      //- 'show value'
+                    ]
+                  }
+                ]
+              },
+              {
+                title: 'some boolean',
+                names: ['property'],
+                boolean: true,
+                type: Boolean,
+                properties: [
+                  {
+                    title: 'options',
+                    names: ['property'],
+                    list: [
+                      //- 'show value'
+                    ]
+                  }
+                ]
+              },
+              {
+                title: 'some text',
+                names: ['property'],
+                text: 'fill me',
+                type: String,
+                properties: [
+                  {
+                    title: 'options',
+                    names: ['property'],
+                    list: [
+                      //- 'show value'
+                    ]
+                  }
+                ]
+              },
+              {
+                title: 'some thing',
+                names: ['property'],
+                thing: {},
+                type: Object,
+                properties: [
+                  {
+                    title: 'options',
+                    names: ['property'],
+                    list: [
+                      //- 'show value'
+                    ]
+                  }
+                ]
+              },
+            ],
+            things: [
+              //- {
+              //- 	title: 'test'
+              //- },
+            ]
+          }`)
+        //- thing(
+          :thing='entity.inventory && entity.inventory._id ? entity.inventory._id : entity.inventory'
+          :count=40
+          :parentOptions="['inventory mode', 'inventory', 'addable', 'put-last', 'owner-root', 'owner-only', 'put-options-last']"
           )
 
       .actions-group-container(v-if="sidebar")
         .actions-container(v-if="sidebar.actionGroups && sidebar.actionGroups.length > 0" v-for="actionsGroup in sidebar.actionGroups")
           .action(
-            v-if="((action.auth.indexOf('user') >= 0) ? entity.auth : true) && (action.auth.indexOf('nouser') >= 0 ? !entity.auth : true)" 
+            v-if="((action.auth.indexOf('user') >= 0) ? entity.auth : true) && (action.auth.indexOf('nouser') >= 0 ? !entity.auth : true)"
             v-for="action in actionsGroup.actions"
             )
             a(v-if="action.type == 'link'" :href="action.link")
@@ -32,7 +131,7 @@
             <component v-else-if="action.type == 'component' && !entity.auth" :is="action.text+'-comp'"></component>
             .dropdown-container(v-else-if="action.type == 'dropdown'")
               .text(v-if="action.render == 'text'") {{ action.text }}
-              <icon v-else-if="action.render == 'icon'" :name='action.icon'></icon>              
+              <icon v-else-if="action.render == 'icon'" :name='action.icon'></icon>
         .actions-container(v-if="sidebar.actions && sidebar.actions.length > 0")
           .action(v-for="action in sidebar.actions" v-if="((action.auth.indexOf('user') >= 0) ? entity.auth : true) && (action.auth.indexOf('nouser') >= 0 ? !entity.auth : true)")
             a(v-if="action.type == 'link'" :href="action.link")
@@ -50,26 +149,32 @@
             )
             .text logout
           .action(
-            v-if="entity.username"
+            v-if="!entity.username"
+            )
+            router-link(
+              to="/register"
+              ) register
+          .action(
             @click="pushOpt('closed')"
             )
             .text close
-          .action(
-            v-if="!entity.username"
-            )
-            a(
-              href="/register"
-              ) register
-            
+
             //- <icon v-else-if="action.render == 'icon'" :name='action.icon'></icon>
-</template> 
+</template>
 
 <script>
 import loginSmall from '@/components/login-small'
-import smartOpts from '@/components/mixins/smartOpts'
+import smarts from 'smarts'
 // import {mapGetters} from 'vuex'
 export default {
-  mixins: [smartOpts],
+  mixins: [smarts({
+    vue: {
+      reactiveSetter: true,
+      vm: this
+    }, 
+    objList: 'this.optionsMutable', 
+    stringList: 'this.optionsMutable',
+  })],
   data () {
     return {
       sidebar: null,
@@ -87,7 +192,7 @@ export default {
   // },
   sockets: {
     connect: function(){
-      console.log("module %s connect vue side", this.$options.name)
+      // console.log("module %s connect vue side", this.$options.name)
     },
     giveNav(data){
       // console.log(data)
@@ -97,10 +202,10 @@ export default {
     }
   },
   created () {
-    this.getNav({
-      id: this.uuid,
-      siteTitle: this.siteTitle
-    })
+    // this.getNav({
+    //   id: this.uuid,
+    //   siteTitle: this.siteTitle
+    // })
     this.eventHub.$on('toggleSideBar', ()=>{
       this.toggleOpt('closed')
     })
@@ -115,6 +220,7 @@ export default {
   watch: {
     '$store.state.entity': function(){
       this.entity = this.$store.state.entity
+      this.entity.inventory = this.$store.state.entity.inventory
     },
     '$store.state.sideBarOptions': function(){
       this.optionsMutable = this.$store.state.sideBarOptions
@@ -129,6 +235,7 @@ export default {
     },
     logout(){
       let opts = {}
+      console.log('logging out')
       this.$socket.emit('logout', opts)
     }
   },
@@ -150,7 +257,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="sass" scoped>
-@import '~@/styles/vars'
+@import 'src/styles/vars'
 $sidebarSpace: 2%
 .sidebar
   position: fixed
@@ -188,6 +295,7 @@ $sidebarSpace: 2%
       width: 100%
       display: flex
       flex-direction: column
+      padding-top: 20px
     .actions-group-container
       display: flex
       align-items: center
