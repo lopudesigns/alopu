@@ -2,13 +2,13 @@
   #q-app(ref="app")
     //- navbar(:siteTitle="siteTitle")
     q-layout(
-      view="HHH Lpr fff"
+      view="HHH dpR fff"
       )
       q-layout-drawer(
-        side="left"
+        side="right"
         v-model="mainDrawer"
         :overlay="true"
-        ).z-top
+        ).z-top.flex.column
         //- q-toolbar(
         //-   color="primary"
         //-   )
@@ -16,7 +16,7 @@
           //-   icon="close"
           //-   @click="mainDrawer = !mainDrawer"
           //-   ).shadow-0
-        q-list
+        q-list.no-border
           q-item(
             )
             q-item-side
@@ -30,205 +30,58 @@
                 //-   width: 'auto'
                 //- }`
                 img(
-                  src="/assets/astronaut.png"
-                  )
+                  src="/assets/neo.png"
+                  ).br-none
             q-item-main(
             )
               q-item-tile(
                 label
-              ) Nikolaj Frey
+              ) Neo
               q-item-tile(
                 sublabel
                 size=".5rem"
-                ) Star Man
+                ) 010010100101
             q-item-side(
               )
               q-btn(
                 icon="close"
                 @click="mainDrawer = !mainDrawer"
               ).shadow-0
-          q-item-separator
-          q-collapsible(
-            label="Tracking"
-            avatar="/assets/gps.png"
-            )
-            //- q-item(
-              )
-              q-item-main(
-                label="Requested Jobs"
-                )
-            q-item(
-              )
-              q-item-main(
-                label="Awaiting Pickup"
-                )
-            q-item(
-              )
-              q-item-main(
-                label="Picked Up"
-                )
-            q-item(
-              )
-              q-item-main(
-                label="En Route"
-                )
-            q-item(
-              )
-              q-item-main(
-                label="Delivered"
-                )
-            q-item(
-              )
-              q-item-main(
-                label="Routes"
-                )
-            q-item(
-              )
-              q-item-main(
-                label="ETA's"
-                )
-            q-item(
-              )
-              q-item-main(
-                label="Your Pilots"
-                )
-            q-item(
-              )
-              q-item-main(
-                label="View Map"
-                )
-          q-item-separator
-          q-collapsible(
+          //- q-item-separator
+          //- q-collapsible(
             label="Notifications"
-            avatar="/assets/bell.png"
-            )
-            //- q-item(
-              )
-              q-item-main(
-                label="Requested Jobs"
+            color="primary"
+            avatar="/assets/planet-earth.png"
+            ).text-center.notifications-collapsible.icon-avatar.square-avatar
+            //- q-item()
+              q-item-side(
+                icon="public"
+                color="primary"
                 )
-            q-collapsible(
+            //- q-collapsible(
               label="Messages"
-              )
-            q-item(
-              )
-              q-item-main(
-                label="Picked Up"
-                )
-            q-item(
-              )
-              q-item-main(
-                label="Delivered"
-                )
-            q-item(
-              )
-              q-item-main(
-                label="ETA's"
-                )
-            q-item(
-              )
-              q-item-main(
-                label="Delays"
-                )
-            q-item(
-              )
-              q-item-main(
-                label="Discounts"
-                )
-            q-item(
-              )
-              q-item-main(
-                label="Surges"
-                )
-            // Driver Only
-            q-collapsible(
-              label="New Jobs"
-              avatar="/assets/a2b.png"
-              )
-          q-item-separator
-          q-collapsible(
-            label="Driver Hub"
-            avatar="/assets/van.png"
             )
-            q-collapsible(
-              avatar="/assets/next-stop.png"
-              label="Next Stop"
-              )
-              q-item-side()
-              q-item-main(
-                label="23 Conley St, Place Holder, 3174"
-              )
-            q-collapsible(
-              avatar="/assets/route.png"
-              label="Current Route"
-              )
-              q-item(
-              )
-                q-item-main(
-                  label="Stop A"
-                )
-              q-item(
-
-              )
-                q-item-main(
-                  label="Stop B"
-                )
-              q-item(
-              )
-                q-item-main(
-                  label="Stop C (break)"
-                )
-              q-item(
-              ) 
-                q-item-main(
-                  label="Stop D"
-                )
-            q-collapsible(
-              avatar="/assets/routes.png"
-              label="All Routes"
-              )
-            q-item(
-              )
-              q-item-side(
-                avatar="/assets/sleep.png"
-              )
-              q-item-main(
-                label="Rests"
-                )
-              q-item-side(
-                avatar="/assets/question-yellow.png"
-              ).q-verified-status
-            q-collapsible(
-              avatar="/assets/van.png"
-              label="Your vehicle"
-              )
-            q-item(
-              )
-              q-item-side(
-                avatar="/assets/box.png"
-              )
-              q-item-main(
-                label="Current Inventory"
-                )
-              q-item-side(
-                avatar="/assets/question-yellow.png"
-              ).q-verified-status
-            q-collapsible(
-              label="New Jobs"
-              avatar="/assets/a2b.png"
-              ) 
           q-item-separator
           q-collapsible(
-            label="profile"
-            avatar="/assets/astronaut.png"
-          )
-            q-collapsible(
+            label="Inventory"
+            ).q-pr-xs
+            //- avatar="/assets/box.png"
+            q-list.no-border.q-pl-sm
+              img(
+                v-for="num in 1"
+                src="/assets/box.png"
+                ).q-img-lg.q-mr-md.q-mb-md
+          //- q-item-separator
+          //- q-collapsible(
+            label="Profile"
+            avatar="/assets/neo.png"
+            ).icon-avatar
+            //- q-collapsible(
               label="Current Location"
               avatar="/assets/where.png"
-            )
-              
+              )
               //- q-item-separator()
-              q-list()
+              //- q-list()
                 q-item(
                 )
                   q-item-side(
@@ -295,275 +148,34 @@
                     label="add a device"
                     wide
                   )
-            q-collapsible(
-              label="Identity"
-              avatar="/assets/identification.png"
-              )
-              
-              //- q-collapsible(
-                avatar="/assets/license-plate.png"
-                label="Identification"
-                )
-              q-collapsible(
-                avatar="/assets/license.png"
-                label="Licenses"
-                )
-                q-item(
-                )
-                  q-item-side(
-                    avatar="/assets/license.png"
-                  )
-                  q-item-main(
-                    label="Car License"
-                  )
-                  q-item-side(
-                    avatar="/assets/wrong-thick.png"
-                  ).q-verified-status
-                q-item(
-                )
-                  q-item-side(
-                    avatar="/assets/license.png"
-                  )
-                  q-item-main(
-                    label="Truck License"
-                  )
-                  q-item-side(
-                    avatar="/assets/wrong-thick.png"
-                  ).q-verified-status
-                q-item(
-                )
-                  q-item-side(
-                    avatar="/assets/license.png"
-                  )
-                  q-item-main(
-                    label="Boat License"
-                  )
-                  q-item-side(
-                    avatar="/assets/wrong-thick.png"
-                  ).q-verified-status
-                q-item(
-                )
-                  q-item-side(
-                    avatar="/assets/license.png"
-                  )
-                  q-item-main(
-                    label="PWC License"
-                  )
-                  q-item-side(
-                    avatar="/assets/wrong-thick.png"
-                  ).q-verified-status
-                q-item(
-                )
-                  q-item-side(
-                    avatar="/assets/license.png"
-                  )
-                  q-item-main(
-                    label="Aircraft License"
-                  )
-                  q-item-side(
-                    avatar="/assets/wrong-thick.png"
-                  ).q-verified-status
-              q-item(
-              )
-                q-item-side(
-                  avatar="/assets/birth-certificate.png"
-                )
-                q-item-main(
-                  label="Birth Certificate"
-                )
-                q-item-side(
-                  avatar="/assets/wrong-thick.png"
-                ).q-verified-status
-              q-item(
-              )
-                q-item-side(
-                  avatar="/assets/passport.png"
-                )
-                q-item-main(
-                  label="Passport"
-                )
-                q-item-side(
-                  avatar="/assets/wrong-thick.png"
-                ).q-verified-status
-              q-collapsible(
-                label="Documents"
-                avatar="/assets/documents.png"
-              )
-                  q-item(
-                  )
-                    q-item-side(
-                      avatar="/assets/documents.png"
-                    )
-                    q-item-main(
-                      label="Utility Bill 1"
-                    )
-                    q-item-side(
-                      avatar="/assets/wrong-thick.png"
-                    ).q-verified-status
-                  q-item(
-                  )
-                    q-item-side(
-                      avatar="/assets/documents.png"
-                    )
-                    q-item-main(
-                      label="Utility Bill 2"
-                    )
-                    q-item-side(
-                      avatar="/assets/wrong-thick.png"
-                    ).q-verified-status
-                  q-item(
-                  )
-                    q-item-side(
-                      avatar="/assets/documents.png"
-                    )
-                    q-item-main(
-                      label="Utility Bill 3"
-                    )
-                    q-item-side(
-                      avatar="/assets/wrong-thick.png"
-                    ).q-verified-status
-                
-              q-item(
-                )
-                q-item-side(
-                  avatar="/assets/license-plate.png"
-                )
-                q-item-main(
-                  label="Registration"
-                  )
-                q-item-side(
-                  avatar="/assets/wrong-thick.png"
-                ).q-verified-status
-              q-item(
-                )
-                q-item-side(
-                  avatar="/assets/contract.png"
-                )
-                q-item-main(
-                  label="Insurance"
-                  )
-                q-item-side(
-                  avatar="/assets/wrong-thick.png"
-                ).q-verified-status
-              q-item(
-                )
-                q-item-side(
-                  avatar="/assets/cap.png"
-                )
-                q-item-main(
-                  label="Police Check"
-                  )
-                q-item-side(
-                  avatar="/assets/wrong-thick.png"
-                ).q-verified-status
-              q-item(
-                )
-                q-item-side(
-                  avatar="/assets/group.png"
-                )
-                q-item-main(
-                  label="Interview"
-                  )
-                q-item-side(
-                  avatar="/assets/wrong-thick.png"
-                ).q-verified-status
-              q-collapsible(
-                avatar="/assets/certificate.png"
-                label="Qualifications"
-              )
-                q-item(
-                  )
-                  q-item-side(
-                    avatar="/assets/certificate.png"
-                  )
-                  q-item-main(
-                    label="Working with Children"
-                    )
-                  q-item-side(
-                    avatar="/assets/wrong-thick.png"
-                  ).q-verified-status
-                q-item(
-                  )
-                  q-item-side(
-                    avatar="/assets/certificate.png"
-                  )
-                  q-item-main(
-                    label="RSA"
-                    )
-                  q-item-side(
-                    avatar="/assets/wrong-thick.png"
-                  ).q-verified-status
-                
-                
-          q-item-separator(
+        q-toolbar(
+          background="secondary"
+          ).q-mt-auto.no-border.bg-none.q-pl-sm
+          q-item(
             )
-          q-collapsible(
-            label="Business Hub"
-            avatar="/assets/store.png"
+            q-item-main(
+              label="login"
+            ).text-tertiary
+          //- q-item(
             )
-            q-item(
-              )
-              q-item-side(
-                avatar="/assets/store.png"
-              )
-              q-item-main(
-                label="Your store"
-                )
-              q-item-side(
-                avatar="/assets/question-yellow.png"
-              ).q-verified-status
-            q-item(
-              )
-              q-item-side(
-                avatar="/assets/box.png"
-              )
-              q-item-main(
-                label="Current Inventory"
-                )
-              q-item-side(
-                avatar="/assets/question-yellow.png"
-              ).q-verified-status
-            
-          q-item-separator
-          q-collapsible(
-            label="Settings"
+            q-item-main(
+              label="logout"
             )
-          q-item-separator
-          q-collapsible(
-            label="More"
+          q-item(
             )
-            q-item(
-              )
-              q-item-main(
-                label="Terms and Conditions"
-                )
-            q-item(
-              )
-              q-item-main(
-                label="Insurance"
-                )
-            q-item(
-              )
-              q-item-main(
-                label="Legal"
-                )
-          //- q-toolbar-title() Planet Express
-      //- q-layout-header.fixed-top
+            q-item-main(
+              label="register"
+            ).text-tertiary
+          //- q-item(
+            )
+            q-item-main(
+              label="settings"
+            )
       q-page-container.q-pt-none
         router-view.router-view(:siteTitle="siteTitle")
-      q-toolbar.fixed-top.q-nav-toolbar(
-        color="primary"
-        :overlay="true"
-        )
-        q-btn(
-          icon="menu"
-          @click="mainDrawer = !mainDrawer"
-          size="1.2rem"
-          ).shadow-0
-        img(
-          src="/assets/pe-logo.png"
-          @click="mainDrawer = !mainDrawer"
-        )
+      navbar(
+        @toggleDrawer="mainDrawer = !mainDrawer"
+      )
         //- q-toolbar-title() Planet Express
     //- sidebar
 </template>
@@ -916,4 +528,26 @@ body
     height: auto
   width: auto
   height: auto
+</style>
+<style lang="stylus">
+@import '~variables'
+.icon-primary
+  .q-item-icon
+    // color $primary !important
+.notifications-collapsible
+  .q-item-icon
+    // color $primary !important
+.square-avatar
+  // &>.q-collapsible-inner
+  //   &>.q-item
+  //     &>.q-item-side
+  .q-item-avatar
+    border-radius 0px
+.icon-avatar
+  .q-item-avatar
+    width: 24px
+    height: auto
+.q-item-side
+  display: flex
+  align-items center
 </style>

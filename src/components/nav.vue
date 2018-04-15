@@ -1,7 +1,21 @@
 <template lang='pug'>
-  .nav
+  q-toolbar.fixed-top.q-nav-toolbar(
+    color="primary"
+    :overlay="true"
+    ).q-pr-md
+    q-item.q-pt-no
+      img(
+        src="/assets/logo.png"
+        @click="$emit('toggleDrawer')"
+      ).q-img-sm
+    q-btn(
+      icon="menu"
+      @click="$emit('toggleDrawer')"
+      size="1.2rem"
+      ).shadow-0.q-ml-auto.text-primary
+  //- .nav
     //- .debug.art {{ nav }}
-    .nav-positioner(v-if="nav")
+    //- .nav-positioner(v-if="nav")
       .brand-container
         router-link(to="/home").brand {{nav.siteTitle}}
           //- img(src="../assets/agoraLogoIcon.png")

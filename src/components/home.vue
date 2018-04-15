@@ -1,23 +1,43 @@
 <template lang='pug'>
 	.home
 		//- img(style="max-width: 220px" src="../assets/agoraLogo.png")
-		img.noselect(
-			style="transform: rotate(180deg); max-width: 100%" 
-			src="assets/logo.png" title="yes, this is the vue logo upside down"
-			)
-			//- ref="logo"
-			//- @click="spinLogo"
-		.intro-text-container
-			.intro-text Welcome to&nbsp;
-				.inline alopu, a social platform for trading anything
+		.particles-container
+			.particles-positioner
+				.particles
+					vue-particles.vue-particles(
+					shapeType="image"
+					:moveSpeed="2.5"
+					:image=`{
+						src: '/assets/box.png'
+						}`
+					color="#42b983"
+					linesColor="#42b983"
+					:opacity="1"
+					:particlesNumber="18"
+					:lineLinked="true"
+					:lineOpacity=".7"
+					:linesDistance="180"
+					:particleSize="25"
+						)
+					//- :linesWidth="1"
+		.home-positioner
+			img.noselect(
+				style="max-width: 100%; opacity: .978; pointer-events: none;" 
+				src="assets/logo.png" title="yes, this is the vue logo upside down"
+				)
+				//- ref="logo"
+				//- @click="spinLogo"
+			.intro-text-container
+				.intro-text Welcome to&nbsp;
+					.inline alopu, a social platform for trading anything
 				//- .capitalize.inline Agora
-		search(
+		//- search(
 			@go=`createNewGetter(data)`
 			:options=`frontPageThing.things`
 			label=`title`
 			@searchText=`queryNewThings`
 			)
-		.inventories-container.stream-container.maps-inventory-container
+		//- .inventories-container.stream-container.maps-inventory-container
 			//- thing(
 				:thing=`{
 					title: 'The Collective Inventory',
@@ -75,7 +95,7 @@
 				:thing=`frontPageThing`
 			)
 
-		.inventories-container.vertical
+		//- .inventories-container.vertical
 			// html builder thing
 			//- thing(
 				:thing=`{
@@ -755,9 +775,22 @@ export default {
 	.home
 		display: flex
 		align-items: center
-		justify-content: flex-start
+		justify-content: center
 		flex-direction: column
-		padding-bottom: 200px
+		// padding-top: 50px
+		// padding-bottom: 200px
+		height: 100vh
+		max-height: 100vh
+		width: 100%
+		max-width: 100%
+		.home-positioner
+			display: flex
+			align-items: center
+			justify-content: center
+			flex-direction: column
+			max-width: 100%
+			max-height: 100%
+			z-index: 10			
 	.search
 		// padding-bottom: 10px
 	.spin
@@ -828,4 +861,24 @@ export default {
 	a
 		color: #42b983
 
+</style>
+
+<style lang="stylus">
+@import '~variables'
+.home
+	z-index 6
+.particles-container
+	// z-index: 5
+	position: absolute
+	width: 100%
+	height: 100%
+	.particles-positioner
+		width: 100%
+		height: 100%
+		.particles
+			width: 100%
+			height: 100%
+			.vue-particles
+				width: 100%
+				height: 100%
 </style>

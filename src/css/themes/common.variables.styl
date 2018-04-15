@@ -18,7 +18,7 @@ $primary   = #42b983
 // $secondary = #4dd798
 // $thirdiary = #ffdebd
 $secondary = #ffdebd
-$tertiary  = #555
+$tertiary  = #2F2F2F
 $white     = #F2F2F2
 
 $neutral   = #E0E1E2
@@ -27,3 +27,70 @@ $positive  = #21BA45
 $negative  = #DB2828
 $info      = #31CCEC
 $warning   = #F2C037
+
+.flex
+    display flex
+
+.q-drawer-container
+    &.flex
+        display: block
+        >.q-layout-drawer
+            display: flex
+        &.column
+            >.q-layout-drawer
+                flex-direction: column
+.q-mt-auto
+    margin-top auto
+.q-ml-auto
+    margin-left auto
+.q-mr-auto
+    margin-right auto
+.q-mb-auto
+    margin-bottom auto
+.q-mt-no
+    margin-top 0px
+.q-ml-no
+    margin-left 0px
+.q-mr-no
+    margin-right 0px
+.q-mb-no
+    margin-bottom 0px
+.q-pt-no
+    padding-top 0px
+.q-pl-no
+    padding-left 0px
+.q-pr-no
+    padding-right 0px
+.q-pb-no
+    padding-bottom 0px
+    
+.no-border,
+.bd-no,
+.no-bd
+    border: none
+.br-none,
+.br-no
+    border-radius 0px !important
+.icon-avatar
+    & img
+        width: 24px
+        height auto
+.bg-none
+    background rgba(0,0,0,0) !important
+img
+    &.q-img-xs
+        width 24px
+        height auto
+    &.q-img-sm
+        width 30px
+        height auto
+    &.q-img-md
+        width 36px
+        height auto
+    &.q-img-lg
+        width 42px
+        height auto
+    &.q-img-xl
+        width 48px
+        height auto
+        

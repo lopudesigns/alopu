@@ -12,7 +12,6 @@ module.exports = function (ctx) {
       'circular-json',
       'mapbox-gl',
       'mapbox-gl-vue',
-      'vue-mapbox-js',
       'vue-awesome',
       'vue-img-inputer',
       'vue-socket.io',
@@ -22,7 +21,8 @@ module.exports = function (ctx) {
       'vue-uuid',
       'eventHub',
       'globalCss',
-      'vue-particles'
+      'vue-particles',
+      'vuedraggable'
     ],
     css: [
       'app.styl'
