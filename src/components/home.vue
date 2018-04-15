@@ -13,11 +13,11 @@
 					color="#42b983"
 					linesColor="#42b983"
 					:opacity="1"
-					:particlesNumber="18"
+					:particlesNumber="14"
 					:lineLinked="true"
-					:lineOpacity=".7"
+					:lineOpacity=".2"
 					:linesDistance="180"
-					:particleSize="25"
+					:particleSize="20"
 						)
 					//- :linesWidth="1"
 		.home-positioner
