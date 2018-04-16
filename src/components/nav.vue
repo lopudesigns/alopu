@@ -5,7 +5,7 @@
     ).q-pr-md
     q-item.q-pt-no
       img(
-        src="/assets/logo.png"
+        src="/statics/logo.png"
         @click="$emit('toggleDrawer')"
       ).q-img-sm
     q-btn(
@@ -18,7 +18,7 @@
     //- .nav-positioner(v-if="nav")
       .brand-container
         router-link(to="/home").brand {{nav.siteTitle}}
-          //- img(src="../assets/agoraLogoIcon.png")
+          //- img(src="../statics/agoraLogoIcon.png")
       //- .debug {{ user }}
       .welcome-message-container(v-if="entity")
         .welcome-message 

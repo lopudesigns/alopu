@@ -23,7 +23,7 @@ q-page
                 :moveSpeed="2"
                   shapeType="image"
                   :image=`{
-                    src: "/assets/pixel-ship.png"
+                    src: "/statics/pixel-ship.png"
                   }`
                   :particlesNumber="3"
                   :particleSize="30"
@@ -57,7 +57,7 @@ q-page
                                     v-for="good in gosmart(address, 'goods', [])"
                                     )
                                     img(
-                                      src="assets/box.png"
+                                      src="statics/box.png"
                                       )
                                     q-chip(
                                       :floating="true"
@@ -142,7 +142,7 @@ q-page
                                     v-if="good.deliveryAddress && good.deliveryAddress == address.address"
                                     )
                                     img(
-                                      src="assets/box.png"
+                                      src="statics/box.png"
                                       )
                                     .good-name-container
                                       .good-name-positioner

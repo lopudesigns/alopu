@@ -2,8 +2,8 @@
   .icoThings
     .icoThings-container
       .icoThings-positioner
-        //- img(style="max-width: 220px" src="../assets/agoraLogo.png")
-        img.noselect(style="max-width: 100%" src="src/assets/logo.png" title="yes, this is the vue logo upside down")
+        //- img(style="max-width: 220px" src="../statics/agoraLogo.png")
+        img.noselect(style="max-width: 100%" src="src/statics/logo.png" title="yes, this is the vue logo upside down")
         .intro-text-container
           .intro-text Welcome
             //- .inline {{ siteTitle }}

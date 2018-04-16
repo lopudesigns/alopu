@@ -1,6 +1,6 @@
 <template lang='pug'>
 	.home
-		//- img(style="max-width: 220px" src="../assets/agoraLogo.png")
+		//- img(style="max-width: 220px" src="../statics/agoraLogo.png")
 		.particles-container
 			.particles-positioner
 				.particles
@@ -8,14 +8,14 @@
 					shapeType="image"
 					:moveSpeed="2.5"
 					:image=`{
-						src: '/assets/box.png'
+						src: '/statics/box.png'
 						}`
 					color="#42b983"
 					linesColor="#42b983"
 					:opacity="1"
 					:particlesNumber="14"
 					:lineLinked="true"
-					:lineOpacity=".2"
+					:lineOpacity=".45"
 					:linesDistance="180"
 					:particleSize="20"
 						)
@@ -23,7 +23,7 @@
 		.home-positioner
 			img.noselect(
 				style="max-width: 100%; opacity: .978; pointer-events: none;" 
-				src="assets/logo.png" title="yes, this is the vue logo upside down"
+				src="statics/logo.png" title="yes, this is the vue logo upside down"
 				)
 				//- ref="logo"
 				//- @click="spinLogo"

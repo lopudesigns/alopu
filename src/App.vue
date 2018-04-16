@@ -30,7 +30,7 @@
                 //-   width: 'auto'
                 //- }`
                 img(
-                  src="/assets/neo.png"
+                  src="/statics/neo.png"
                   ).br-none
             q-item-main(
             )
@@ -51,7 +51,7 @@
           //- q-collapsible(
             label="Notifications"
             color="primary"
-            avatar="/assets/planet-earth.png"
+            avatar="/statics/planet-earth.png"
             ).text-center.notifications-collapsible.icon-avatar.square-avatar
             //- q-item()
               q-item-side(
@@ -65,27 +65,27 @@
           q-collapsible(
             label="Inventory"
             ).q-pr-xs
-            //- avatar="/assets/box.png"
+            //- avatar="/statics/box.png"
             q-list.no-border.q-pl-sm
               img(
                 v-for="num in 1"
-                src="/assets/box.png"
+                src="/statics/box.png"
                 ).q-img-lg.q-mr-md.q-mb-md
           //- q-item-separator
           //- q-collapsible(
             label="Profile"
-            avatar="/assets/neo.png"
+            avatar="/statics/neo.png"
             ).icon-avatar
             //- q-collapsible(
               label="Current Location"
-              avatar="/assets/where.png"
+              avatar="/statics/where.png"
               )
               //- q-item-separator()
               //- q-list()
                 q-item(
                 )
                   q-item-side(
-                    avatar="/assets/devices.png"
+                    avatar="/statics/devices.png"
                   )
                   q-item-main(
                     label="Available Devices"
@@ -95,52 +95,52 @@
                 q-item(
                 )
                   q-item-side(
-                    avatar="/assets/smartphone.png"
+                    avatar="/statics/smartphone.png"
                   )
                   q-item-main(
                     label="Samsung Galaxy S5"
                     sublabel="23 Conley St, Noble Park, 3174"
                     )
                   q-item-side(
-                    avatar="/assets/location-yes.png"
+                    avatar="/statics/location-yes.png"
                   )
                 q-item-separator()
                 q-item(
                 )
                   q-item-side(
-                    avatar="/assets/smartphone.png"
+                    avatar="/statics/smartphone.png"
                   )
                   q-item-main(
                     label="Motorola X Play"
                     sublabel="40 Highett Rd, Moorabin"
                     )
                   q-item-side(
-                    avatar="/assets/location-no.png"
+                    avatar="/statics/location-no.png"
                   )
                 q-item-separator()
                 q-item(
                 )
                   q-item-side(
-                    avatar="/assets/computer-screen.png"
+                    avatar="/statics/computer-screen.png"
                   )
                   q-item-main(
                     label="Macbook Pro"
                     )
                   q-item-side(
-                    avatar="/assets/location-no.png"
+                    avatar="/statics/location-no.png"
                   )
                 q-item-separator()
                 q-item(
                 )
                   q-item-side(
-                    avatar="/assets/tablet.png"
+                    avatar="/statics/tablet.png"
                   )
                   q-item-main(
                     label="Nexus 7"
                     sublabel="23 Conley St, Noble Park, 3174"
                     )
                   q-item-side(
-                    avatar="/assets/location-no.png"
+                    avatar="/statics/location-no.png"
                   )
                 q-item-separator()
                 q-item
@@ -329,8 +329,8 @@ export default {
 <style lang="sass">
 @import 'src/styles/vars'
 html
-  // cursor: url(/assets/cursors/ms/aero_link2.cur), pointer
-  cursor: url(/assets/cursors/ms/aero_arrow.cur) 2 2, auto
+  // cursor: url(/statics/cursors/ms/aero_link2.cur), pointer
+  cursor: url(/statics/cursors/ms/aero_arrow.cur) 2 2, auto
 #app
   font-family: 'Avenir', Helvetica, Arial, sans-serif
   -webkit-font-smoothing: antialiased
@@ -343,7 +343,7 @@ body
   margin: 0px
   &.cursor-pointer,
   &.cursor-pointer *
-    cursor: url(/assets/cursors/ms/aero_link2.cur) 2 2, auto !important
+    cursor: url(/statics/cursors/ms/aero_link2.cur) 2 2, auto !important
 h1,h2
   font-weight: normal
 
@@ -363,32 +363,32 @@ a:-webkit-any-link,
 .btn-container
   color: $green
   text-decoration: none
-  // cursor: url(/assets/cursors/ms/aero_link1.cur), pointer
+  // cursor: url(/statics/cursors/ms/aero_link1.cur), pointer
   // border-bottom: 1px dotted rgba($green, .5)
   +animate(all, 300ms, ease)
-  cursor: url(/assets/cursors/ms/aero_arrow.cur) 2 2, auto
+  cursor: url(/statics/cursors/ms/aero_arrow.cur) 2 2, auto
   animation: 400ms hoverMaple linear infinite
   &:hover
     color: $greenhover
 
   +keyframes(hoverMaple)
     0%
-      cursor: url(/assets/cursors/ms/aero_link2.cur) 2 2, pointer 
+      cursor: url(/statics/cursors/ms/aero_link2.cur) 2 2, pointer 
     49%
-      cursor: url(/assets/cursors/ms/aero_link2.cur) 2 2, pointer 
+      cursor: url(/statics/cursors/ms/aero_link2.cur) 2 2, pointer 
     50% 
-      cursor: url(/assets/cursors/ms/aero_link1.cur) 2 2, auto 
+      cursor: url(/statics/cursors/ms/aero_link1.cur) 2 2, auto 
     99% 
-      cursor: url(/assets/cursors/ms/aero_link1.cur) 2 2, auto 
+      cursor: url(/statics/cursors/ms/aero_link1.cur) 2 2, auto 
     100%
-      cursor: url(/assets/cursors/ms/aero_link2.cur) 2 2, pointer 
+      cursor: url(/statics/cursors/ms/aero_link2.cur) 2 2, pointer 
   
 .fa-icon
   user-select: none
 button,
 .btn
   color: $green
-  // cursor: url(/assets/cursors/ms/aero_link1.cur), pointer
+  // cursor: url(/statics/cursors/ms/aero_link1.cur), pointer
 .content-editable
   outline: none
   padding: 5px
