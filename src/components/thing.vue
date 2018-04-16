@@ -4059,7 +4059,7 @@ export default {
                 .label
                   margin-right: 0px
                   +animate(all, 250ms, ease)
-                  // cursor: url(~@/statics/cursors/ms/aero_link1.cur), pointer
+                  // cursor: url(statics/cursors/ms/aero_link1.cur), pointer
                   &.price-add
                     background: $grey
                     display: flex
@@ -4172,7 +4172,7 @@ export default {
             color: $friendly
             background: $grey
             padding: 0px 15px
-            // // cursor: url(~@/statics/cursors/ms/aero_link1.cur), pointer
+            // // cursor: url(statics/cursors/ms/aero_link1.cur), pointer
             box-sizing: border-box
             display: flex
             align-items: center
@@ -4230,7 +4230,7 @@ export default {
             color: $friendly
             background: $grey
             padding: 0px 15px
-            // // cursor: url(~@/statics/cursors/ms/aero_link1.cur), pointer
+            // // cursor: url(statics/cursors/ms/aero_link1.cur), pointer
             box-sizing: border-box
             display: flex
             align-items: center
@@ -4361,7 +4361,7 @@ export default {
                     padding-top: 10px
                     padding-bottom: 10px
                     background: $green
-                    // cursor: url(~@/statics/cursors/ms/aero_link1.cur), pointer
+                    // cursor: url(statics/cursors/ms/aero_link1.cur), pointer
                     +animate(all, 250ms, ease)
                     .wide-btn-content
                       width: auto
@@ -4604,7 +4604,7 @@ export default {
     display: flex
     align-items: center
     justify-content: center
-    // cursor: url(~@/statics/cursors/ms/aero_link1.cur), pointer
+    // cursor: url(statics/cursors/ms/aero_link1.cur), pointer
     +animate(all, 250ms, ease)
     position: relative
     box-sizing: border-box
@@ -5422,7 +5422,7 @@ export default {
     .check 
       position: absolute
       display: block
-      // cursor: url(~@/statics/cursors/ms/aero_link1.cur), pointer
+      // cursor: url(statics/cursors/ms/aero_link1.cur), pointer
       top: 0
       left: 0
       width: 100%
@@ -5702,12 +5702,12 @@ export default {
                   width: 56px
                   height: 56px
                   border: none
-                  // cursor: url(~@/statics/cursors/ms/aero_link1.cur), pointer
+                  // cursor: url(statics/cursors/ms/aero_link1.cur), pointer
                   img
                     width: 56px
                     height: 56px
                     border: none
-                    // cursor: url(~@/statics/cursors/ms/aero_link1.cur), pointer
+                    // cursor: url(statics/cursors/ms/aero_link1.cur), pointer
           // &.inventory-container
           //   width: 100%
           //   padding: 0px
