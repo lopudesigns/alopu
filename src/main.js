@@ -6,9 +6,9 @@ import App from './App'
 import router from './router'
 import socketio from 'socket.io-client'
 import VueSocketIo from 'vue-socket.io'
-var SocketInstance = socketio('http://uberagoraserver.dev')
+var SocketInstance = socketio('https://api.alopu.com')
 Vue.use(VueSocketIo, SocketInstance)
-// Vue.use(VueSocketIo, 'http://uberagoraserver.dev')
+// Vue.use(VueSocketIo, 'http://api.alopu.com')
 Vue.use(Vuex)
 Vue.config.productionTip = false
 import storeOpts from './store'
