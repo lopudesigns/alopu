@@ -28,8 +28,7 @@
 				//- ref="logo"
 				//- @click="spinLogo"
 			.intro-text-container
-				.intro-text Welcome to&nbsp;
-					.inline alopu, a social platform for trading anything
+				.intro-text Welcome to alopu, a social platform for trading anything
 				//- .capitalize.inline Agora
 		//- search(
 			@go=`createNewGetter(data)`
@@ -791,6 +790,7 @@ export default {
 			max-width: 100%
 			max-height: 100%
 			z-index: 10			
+			pointer-events: none
 	.search
 		// padding-bottom: 10px
 	.spin
@@ -805,7 +805,10 @@ export default {
 		margin-top: 10px
 		margin-bottom: 10px
 		.intro-text
-			display: inline-block
+			display: flex
+			align-items: center
+			justify-content: center
+			text-align: center
 	.inventories-container
 		display: flex
 		align-items: flex-start

@@ -63,7 +63,7 @@ module.exports = function (ctx) {
         //     console.log(err)
         //   }
         // })
-      }
+			}
     },
     devServer: {
       // https: true,
