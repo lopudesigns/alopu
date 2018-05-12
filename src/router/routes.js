@@ -33,8 +33,7 @@ export default [
     path: '/(|home)',
     name: 'home',
     component: home
-	}
-	// ,
+	},
   // {
   //   path: '/realms',
   //   name: 'realms',
@@ -151,77 +150,77 @@ export default [
   //   path: '/trade',
   //   name: 'trade',
   //   component: trade
-  // },
-  // {
-  //   path: '/ico',
-  //   name: 'ico',
-  //   component: ico
-  // },
-  // {
-  //   path: '/ico/things',
-  //   name: 'icoThings',
-  //   component: icoThings
-  // },
-  // {
-  //   path: '/ico/things/styles',
-  //   name: 'icoThingsStyles',
-  //   component: icoThingsStyles
-  // },
-  // {
-  //   path: '/ico/things/styles/inventories',
-  //   name: 'inventoryStyles',
-  //   component: inventoryStyles
-  // },
-  // {
-  //   path: '/ico/things/options',
-  //   name: 'icoThingsOptions',
-  //   component: icoThingsOptions
-  // },
-  // {
-  //   path: '/ico/things/sandbox',
-  //   name: 'icoSandboxThing',
-  //   component: icoSandboxThing
-  // },
-  // {
-  //   path: '/ico/things/manifest',
-  //   name: 'icoManifestThing',
-  //   component: icoManifestThing
-  // },
-  // {
-  //   path: '/ico/status',
-  //   name: 'status',
-  //   component: status
-  // },
-  // {
-  //   path: '/ico/object',
-  //   name: 'icoobject',
-  //   component: object
-  // },
-  // {
-  //   path: '/object',
-  //   name: 'object',
-  //   component: object
-  // },
-  // {
-  //   path: '/ico/array',
-  //   name: 'icoarray',
-  //   component: array
-  // },
-  // {
-  //   path: '/array',
-  //   name: 'array',
-  //   component: array
-  // },
-  // {
-  //   path: '/ico/alopu',
-  //   name: 'icoalopu',
-  //   component: alopu
-  // },
-  // {
-  //   path: '/alopu',
-  //   name: 'alopu',
-  //   component: alopu
-	// }
+	// },
+  {
+    path: '/ico',
+    name: 'ico',
+    component: ico
+  },
+  {
+    path: '/ico/things',
+    name: 'icoThings',
+    component: icoThings
+  },
+  {
+    path: '/ico/things/styles',
+    name: 'icoThingsStyles',
+  component: icoThingsStyles
+  },
+	{
+		path: '/ico/things/options',
+		name: 'icoThingsOptions',
+		component: icoThingsOptions
+	},
+  {
+    path: '/ico/things/inventories',
+    name: 'inventoryStyles',
+    component: inventoryStyles
+  },
+  {
+    path: '/ico/things/sandbox',
+    name: 'icoSandboxThing',
+    component: icoSandboxThing
+  },
+  {
+    path: '/ico/things/manifest',
+    name: 'icoManifestThing',
+    component: icoManifestThing
+  },
+  {
+    path: '/ico/status',
+    name: 'status',
+    component: status
+  },
+  {
+    path: '/ico/things/object(s|)',
+    name: 'icoobject',
+    component: object
+  },
+  {
+    path: '/things/object(s|)',
+    name: 'object',
+    component: object
+  },
+  {
+    path: '/ico/things/array(s|)',
+    name: 'icoarray',
+    component: array
+  },
+  {
+    path: '/things/array(s|)',
+    name: 'array',
+    component: array
+  },
+  {
+    path: '/ico/alopu',
+    name: 'icoalopu',
+    component: alopu
+  },
+  {
+    path: '/alopu',
+    name: 'alopu',
+    component: alopu
+	}
 	,
   { // Always leave this as last one
     path: '*',

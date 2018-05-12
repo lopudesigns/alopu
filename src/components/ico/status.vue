@@ -112,6 +112,7 @@
 </template>
 
 <script>
+import thing from 'components/thing'
 export default {
   name: 'icoThings-comp',
   data () {
@@ -152,6 +153,7 @@ export default {
     "siteTitle": {}
   },
   components: {
+		thing
   },
   watch: {
     // '$store.state.entity': function(){

@@ -24,6 +24,7 @@
 <script>
 import {mapState} from 'vuex'
 import smarts from 'smarts'
+import thing from 'components/thing'
 export default {
   mixins: [smarts({
     vue: {
@@ -91,6 +92,7 @@ export default {
     "siteTitle": {}
   },
   components: {
+		thing
   },
   watch: {
     // '$store.state.entity': function(){

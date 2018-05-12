@@ -15,6 +15,7 @@
 </template>
 
 <script>
+import thing from 'components/thing'
 import smarts from 'smarts'
 export default {
   mixins: [smarts({vue: true, objList: 'this.thingMutable.things', stringList: 'this.thingMutable.properties.mapped.options.list'})],
@@ -58,6 +59,7 @@ export default {
     "siteTitle": {}
   },
   components: {
+		thing
   },
   watch: {
     // '$store.state.entity': function(){

@@ -7,11 +7,11 @@
   "author": "lopu <ireply@myleisure.com.au>",
   "private": true,
   "scripts": {
-		"test": "echo \"No test specified\" && exit 0",
-		"dev": "npm run start",
-		"start": "quasar dev",
-		"build": "quasar build",
-		"dist": "npm run build"
+    "test": "echo \"No test specified\" && exit 0",
+    "dev": "npm run start",
+    "start": "quasar dev",
+    "build": "quasar build",
+    "dist": "npm run build"
   },
   "dependencies": {
     "axios": "^0.17.1",
@@ -19,7 +19,11 @@
     "vue-i18n": "^7.3.3"
   },
   "devDependencies": {
+    "@firebase/firestore": "^0.4.1",
     "circular-json": "^0.5.1",
+    "cross-env": "^5.1.4",
+    "firebase": "^4.13.1",
+    "flamelink": "^0.17.0",
     "fs": "0.0.1-security",
     "has-binary2": "git+https://github.com/lopugit/alopu-has-binary2.git",
     "mapbox-gl": "^0.44.1",

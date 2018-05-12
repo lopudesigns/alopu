@@ -28,7 +28,21 @@
 				//- ref="logo"
 				//- @click="spinLogo"
 			.intro-text-container
-				.intro-text Welcome to alopu, a social platform for trading anything
+				.intro-text Welcome to Omgora, a platform for anything or everything
+					//- span(style="padding: 0px 5px; font-size: 16px;") Anything 
+					//- | and 
+					//- span(style="padding: 0px 5px; font-size: 16px;") Everything 
+				.intro-cta
+					q-btn(
+						color="primary"
+						label="How it works"
+						@click="$router.push('/ico')"
+					)
+					q-btn(
+						color="primary"
+						label="ICO"
+						@click="$router.push('/ico')"
+					)
 				//- .capitalize.inline Agora
 		//- search(
 			@go=`createNewGetter(data)`
@@ -790,7 +804,7 @@ export default {
 			max-width: 100%
 			max-height: 100%
 			z-index: 10			
-			pointer-events: none
+			// pointer-events: none
 	.search
 		// padding-bottom: 10px
 	.spin
@@ -809,6 +823,14 @@ export default {
 			align-items: center
 			justify-content: center
 			text-align: center
+		.intro-cta
+			padding-top: 20px
+			display: flex
+			align-items: center
+			justify-content: center
+			flex-direction: column
+			.q-btn
+				margin: 5px
 	.inventories-container
 		display: flex
 		align-items: flex-start
