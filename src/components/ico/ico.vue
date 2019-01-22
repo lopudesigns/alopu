@@ -1,8 +1,10 @@
 <template lang='pug'>
 	.ico
+		intro
 		.banner-container
 			.banner-position-helper
 				.banner-sizer
+			
 		.contents-container
 			.contents-positioner
 				template(
@@ -20,6 +22,7 @@
 </template>
 
 <script>
+import intro from 'components/intro/.vue'
 export default {
 	name: 'ico-comp',
 	data () {
@@ -29,55 +32,55 @@ export default {
 			links: [
 				{
 					text: 'things',
-					url: 'ico/things'
+					url: '/ico/things'
 				},
 				{
 					text: 'inventories',
-					url: 'ico/things/inventories'
+					url: '/ico/things/inventories'
 				},
 				{
 					text: 'objects',
-					url: 'ico/things/objects'
+					url: '/ico/things/objects'
 				},
 				{
 					text: 'arrays',
-					url: 'ico/things/arrays'
+					url: '/ico/things/arrays'
 				},
 				{
 					text: 'sandbox',
-					url: 'ico/things/sandbox'
+					url: '/ico/things/sandbox'
 				},
 				{
 					text: 'manifest',
-					url: 'ico/things/manifest'
+					url: '/ico/things/manifest'
 				},
 				{
 					text: 'styles',
-					url: 'ico/things/styles'
+					url: '/ico/things/styles'
 				},
 				{
 					text: 'options',
-					url: 'ico/things/options'
+					url: '/ico/things/options'
 				},
 				{
 					text: 'status',
-					url: 'ico/status'
+					url: '/ico/status'
 				},
 				{
 					text: 'etc',
-					url: 'ico/etc'
+					url: '/ico/etc'
 				},
 				{
 					text: 'alopu',
-					url: 'ico/alopu'
+					url: '/ico/alopu'
 				},
 				{
 					text: 'source',
-					url: 'ico/source'
+					url: '/ico/source'
 				},
 				{
 					text: 'whitepaper',
-					url: 'ico/whitepaper'
+					url: '/ico/whitepaper'
 				},
 			]
 		}
@@ -112,6 +115,7 @@ export default {
 	props: {
 	},
 	components: {
+		intro
 	},
 	watch: {
 		// '$store.state.entity': function(){
@@ -134,9 +138,10 @@ export default {
 	overflow: hidden
 	// background: $grey
 	.contents-container
-		height: 100vh
+		// height: 100vh
+		padding-bottom: 40px
 		.contents-positioner
-			height: 100vh
+			// height: 100vh
 			display: flex
 			align-items: center
 			justify-content: center

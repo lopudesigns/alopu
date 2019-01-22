@@ -159,24 +159,24 @@
             .option.pill.realms(v-if="optIn('realms')")
               .values(v-if="!optIn('editing')")
                 .value(v-for="realm in resourceMutable.realms") {{ realm }}
-              <v-select @click='showOptionsPerm' v-show="optIn('editing')" :pushTags="true" multiple taggable v-model="resourceMutable.realms" :options="realms" label="realm" placeholder="realms"></v-select>
+              <alopuselect @click='showOptionsPerm' v-show="optIn('editing')" :pushTags="true" multiple taggable v-model="resourceMutable.realms" :options="realms" label="realm" placeholder="realms"></alopuselect>
             //- .option.pill.resourceType(v-if="optIn('type')")
             //-   .label(v-if="!optIn('editing')") type 
             //-   .value(v-if="!optIn('editing')") {{ resourceMutable.type }}
             //-   //- input(ref="realmsinput" v-model="resourceMutable.realms" placeholder="eg. food, vegan, icecream")
-            //-   <v-select @click='showOptionsPerm' v-show="optIn('editing')" :pushTags="true" v-model="resourceMutable.types" :options="resourceTypes" label="type" placeholder="resource type"></v-select>
+            //-   <alopuselect @click='showOptionsPerm' v-show="optIn('editing')" :pushTags="true" v-model="resourceMutable.types" :options="resourceTypes" label="type" placeholder="resource type"></alopuselect>
             .option.pill.resourceNames(v-if="optIn('names')")
               //- .label(v-if="!optIn('editing')") resource 
               //- .label(v-else) resource 
               .value(v-if="!optIn('editing')") {{ resourceMutable.resource }}
               //- input(ref="realmsinput" v-model="resourceMutable.realms" placeholder="eg. food, vegan, icecream")
-              v-select( @click='showOptionsPerm' v-show="optIn('editing')" :pushTags="true" taggable multiple v-model="resourceMutable.names" :options="resourceNames" label="name" placeholder="resource names")
+              alopuselect( @click='showOptionsPerm' v-show="optIn('editing')" :pushTags="true" taggable multiple v-model="resourceMutable.names" :options="resourceNames" label="name" placeholder="resource names")
             .option.pill.privacy(v-if="optIn('privacy')")
               //- .label(v-if="!optIn('editing')") resource 
               //- .label(v-else) resource 
               .value(v-if="!optIn('editing')") {{ resourceMutable.resource }}
               //- input(ref="realmsinput" v-model="resourceMutable.realms" placeholder="eg. food, vegan, icecream")
-              v-select( @click='showOptionsPerm' v-show="optIn('editing')" :pushTags="true" taggable multiple v-model="resourceMutable.privacy" :options="resourceNames" label="name" placeholder="these eyes only")
+              alopuselect( @click='showOptionsPerm' v-show="optIn('editing')" :pushTags="true" taggable multiple v-model="resourceMutable.privacy" :options="resourceNames" label="name" placeholder="these eyes only")
             .option.pill.prices(v-show="optIn('prices')" @click='showOptionsPerm' )
               template()
                 .label-group
@@ -189,19 +189,19 @@
                   .value(v-for="price in resourceMutable.prices") {{ price.fiat }} per {{ price.multipler}} {{ price.unit }}'s
                 .prices-list(v-else)
                   .price(v-for="(price, index) in resourceMutable.prices")
-                    //- <v-select class="resource-select" inputStore v-show="optIn('editing') && price.type == 'resource'" v-model="price.currency" :options="currencies" label="currency" placeholder="currency"></v-select>
-                    <v-select class="currency-select" inputStore v-show="optIn('editing')" v-model="price.currency" :options="currencies" label="currency" placeholder="currency"></v-select>
+                    //- <alopuselect class="resource-select" inputStore v-show="optIn('editing') && price.type == 'resource'" v-model="price.currency" :options="currencies" label="currency" placeholder="currency"></alopuselect>
+                    <alopuselect class="currency-select" inputStore v-show="optIn('editing')" v-model="price.currency" :options="currencies" label="currency" placeholder="currency"></alopuselect>
                     .denominator $
-                    <v-select class="ammount-select" inputStore placeholder="ammount" v-show="optIn('editing')" :pushTags="true" taggable v-model="price.fiat" :options="realms" label="realm"></v-select>
+                    <alopuselect class="ammount-select" inputStore placeholder="ammount" v-show="optIn('editing')" :pushTags="true" taggable v-model="price.fiat" :options="realms" label="realm"></alopuselect>
                     .signifier per
-                    <v-select class="multiplier-select" inputStore placeholder="multiplier" v-show="optIn('editing')" :pushTags="true" taggable v-model="price.multiplier" :options="realms" label="realm"></v-select>
-                    <v-select class="unit-select" inputStore placeholder="unit" v-show="optIn('editing')" v-model="price.unit" :options="priceUnits" label="unit"></v-select>
+                    <alopuselect class="multiplier-select" inputStore placeholder="multiplier" v-show="optIn('editing')" :pushTags="true" taggable v-model="price.multiplier" :options="realms" label="realm"></alopuselect>
+                    <alopuselect class="unit-select" inputStore placeholder="unit" v-show="optIn('editing')" v-model="price.unit" :options="priceUnits" label="unit"></alopuselect>
                     .action(@click="removePrice(index)")
                       icon(name="remove")
               //- .action(@click="free = false" v-if="free") Add price
             .option.pill.postas(v-show="optIn('postas')")
               //- .label(v-show="optIn('editing')") post as: 
-              v-select(
+              alopuselect(
                 :inputStore="true"
                 placeholder="post as" 
                 :taggable="true"
@@ -1109,7 +1109,7 @@ export default {
       &.prices,
       &.postas,
       &.privacy
-        .v-select
+        .alopuselect
           $font-size: 1rem
           font-size: $font-size
           line-height: $font-size
@@ -1210,7 +1210,7 @@ export default {
               a
                 background-color: inherit
         .price
-          .v-select
+          .alopuselect
             &.currency-select
               min-width: 90px
               max-width: 90px
@@ -1226,7 +1226,7 @@ export default {
             .form-control
               text-align: center
         &.pill
-          .v-select
+          .alopuselect
             // display: none
             .dropdown-toggle
               flex-direction: column                
@@ -1251,7 +1251,7 @@ export default {
                   margin-right: 5px
       // &.postas
       //   input
-      //   .v-select
+      //   .alopuselect
       //     $font-size: 1rem
       //     font-size: $font-size
       //     line-height: $font-size

@@ -2,7 +2,7 @@
   .search
     .search-container
       .search-form
-        v-select(
+        alopuselect(
           placeholder=`Type in anything that you're looking for` @click=`popOpt('all'); pushOpt('first')`
           :pushTags=`false`
           :inputStore=`true`
@@ -101,7 +101,7 @@ export default {
         background: $grey
         +animate(all, 350ms, ease)
         height: auto
-      .v-select
+      .alopuselect
         width: 100%
         .dropdown-toggle
           border-radius: 0px

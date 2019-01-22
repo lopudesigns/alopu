@@ -6,9 +6,9 @@ import App from './App'
 import router from './router'
 import socketio from 'socket.io-client'
 import VueSocketIo from 'vue-socket.io'
-var SocketInstance = socketio('https://api.alopu.com')
+var SocketInstance = socketio('https://api.alopu.src')
 Vue.use(VueSocketIo, SocketInstance)
-// Vue.use(VueSocketIo, 'http://api.alopu.com')
+// Vue.use(VueSocketIo, 'http://api.alopu.src')
 Vue.use(Vuex)
 Vue.config.productionTip = false
 import storeOpts from './store'
@@ -20,9 +20,9 @@ import 'vue-awesome/icons'
 import Icon from 'vue-awesome/components/Icon'
 Vue.component('icon', Icon)
 
-// vue-select for selection inputs
-import vSelect from 'vue-select'
-Vue.component('v-select', vSelect)
+// alopuselect for selection inputs
+import alopuSelect from 'alopuselect'
+Vue.component('alopuselect', alopuSelect)
 
 import VueImgInputer from 'vue-img-inputer'
 Vue.component('VueImgInputer', VueImgInputer)

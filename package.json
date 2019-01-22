@@ -1,5 +1,5 @@
 {
-  "name": "quasar-test",
+  "name": "dingern",
   "version": "1.0.0",
   "description": "A Quasar Framework app",
   "productName": "Quasar App",
@@ -10,8 +10,12 @@
     "test": "echo \"No test specified\" && exit 0",
     "dev": "npm run start",
     "start": "quasar dev",
+    "comment": "building is static that's why start runs dev start",
     "build": "quasar build",
-    "dist": "npm run build"
+		"dist": "npm run build",
+		"commit" : "git add . ; git commit -m 'ready'",
+		"push" : "npm run commit ; git push origin dev",
+		"pull" : "git pull origin dev"
   },
   "dependencies": {
     "axios": "^0.17.1",
@@ -20,6 +24,7 @@
   },
   "devDependencies": {
     "@firebase/firestore": "^0.4.1",
+    "alopuselect": "^2.4.1",
     "circular-json": "^0.5.1",
     "cross-env": "^5.1.4",
     "firebase": "^4.13.1",
@@ -40,7 +45,6 @@
     "vue-img-inputer": "^1.1.5",
     "vue-particles": "git+https://github.com/lopugit/alopu-vue-particles.git",
     "vue-resource": "^1.5.0",
-    "vue-select": "^2.4.0",
     "vue-socket.io": "^2.1.1-b",
     "vue-template-compiler": "^2.5.16",
     "vue-uuid": "^1.0.0",

@@ -67,8 +67,8 @@ plugins.push(pluginVueimginputer)
 import pluginVuesocketio from 'src/plugins/vue-socket.io'
 plugins.push(pluginVuesocketio)
 
-import pluginVueselect from 'src/plugins/vue-select'
-plugins.push(pluginVueselect)
+import pluginAlopuselect from 'src/plugins/alopuselect'
+plugins.push(pluginAlopuselect)
 
 import pluginVueresource from 'src/plugins/vue-resource'
 plugins.push(pluginVueresource)

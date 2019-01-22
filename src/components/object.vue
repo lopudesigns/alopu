@@ -3896,7 +3896,7 @@ export default {
               &.contract,
               &.postas,
               &.privacy
-                .v-select
+                .alopuselect
                   $font-size: 1rem
                   font-size: $font-size
                   line-height: $font-size
@@ -3998,7 +3998,7 @@ export default {
                         background-color: inherit
 
                 .price
-                  .v-select
+                  .alopuselect
                     &.currency-select
                       min-width: 90px
                       max-width: 90px
@@ -4014,7 +4014,7 @@ export default {
                     .form-control
                       text-align: center
                 &.pill
-                  .v-select
+                  .alopuselect
                     // display: none
                     .dropdown-toggle
                       flex-direction: column
@@ -4060,7 +4060,7 @@ export default {
         
         
           
-    .v-select
+    .alopuselect
       $font-size: 1rem
       font-size: $font-size
       line-height: $font-size
@@ -4182,7 +4182,7 @@ export default {
                 >.type-container
                   >.type-positioner
                     >.type
-                      &.v-select
+                      &.alopuselect
                         >.dropdown-toggle
                           >.input-container
                             >.form-control

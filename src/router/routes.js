@@ -51,86 +51,86 @@ export default [
   //   component: planetExpress,
   //   props: true
   // },
-  // {
-  //   path: '/forum',
-  //   name: 'forum',
-  //   component: thing,
-  //   props: {
-  //     thing: {
-  //       names: ['a lopu inventory generator'],
-  //       // description: 'What is the composition of reality ?',
-  //       properties: [
-  //         {
-  //           title: 'server-save',
-  //           boolean: false
-  //         },
-  //         {
-  //           title: 'realms to match',
-  //           list: ['testing']
-  //         },
-  //         {
-  //           title: 'limit',
-  //           Number: 5
-  //         },
-  //         {
-  //           title: 'broadly match realms',
-  //           boolean: true
-  //         },
-  //         {
-  //           title: 'broadly match description',
-  //           boolean: true
-  //         },
-  //         {
-  //           title: 'options',
-  //           list: [
-  //             'no options',
-  //             'addable',
-  //             'no context',
-  //             'put-first',
-  //             'feed',
-  //             'show-children-comments',
-  //             'put new things first',
-  //             'addable with template',
-  //             'dont load childrens children',
-  //             'wide-adder'
-  //             ]
-  //         }
-  //       ]
-  //     }
+  {
+    path: '/forum',
+    name: 'forum',
+    component: thing,
+    props: {
+      thing: {
+        names: ['a lopu inventory generator'],
+        // description: 'What is the composition of reality ?',
+        properties: [
+          {
+            title: 'server-save',
+            boolean: false
+          },
+          {
+            title: 'realms to match',
+            list: ['testing']
+          },
+          {
+            title: 'limit',
+            Number: 5
+          },
+          {
+            title: 'broadly match realms',
+            boolean: true
+          },
+          {
+            title: 'broadly match description',
+            boolean: true
+          },
+          {
+            title: 'options',
+            list: [
+              'no options',
+              'addable',
+              'no context',
+              'put-first',
+              'feed',
+              'show-children-comments',
+              'put new things first',
+              'addable with template',
+              'dont load childrens children',
+              'wide-adder'
+              ]
+          }
+        ]
+      }
 
-  //   }
-  // },
-  // {
-  //   path: '/market',
-  //   name: 'market',
-  //   component: thing,
-  //   props: {
-  //     thing: {
-  //       realms: ['commerce', 'market'],
-  //       properties: [
-  //       {
-  //         title: 'count',
-  //         Number: 25
-  //       },
-  //       {
-  //         title: 'broadly match realms',
-  //         boolean: true
-  //       },
-  //       {
-  //         title: 'options',
-  //         list: [
-  //           'addable', 
-  //           'no context', 
-  //           'feed',
-  //           'put-first', 
-  //           'put new things first', 
-  //           'default-new-thing'
-  //         ]
-  //       }
-  //       ]
-  //     },
-  //   }
-  // },
+    }
+  },
+  {
+    path: '/market',
+    name: 'market',
+    component: thing,
+    props: {
+      thing: {
+        realms: ['commerce', 'market'],
+        properties: [
+        {
+          title: 'count',
+          Number: 25
+        },
+        {
+          title: 'broadly match realms',
+          boolean: true
+        },
+        {
+          title: 'options',
+          list: [
+            'addable', 
+            'no context', 
+            'feed',
+            'put-first', 
+            'put new things first', 
+            'default-new-thing'
+          ]
+        }
+        ]
+      },
+    }
+  },
   // {
   //   path: '/register',
   //   name: 'register',

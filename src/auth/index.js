@@ -3,7 +3,7 @@
 import router from '../router/index'
 
 // URL and endpoint constants
-const API_URL = 'http://agoraserver.dev/'
+const API_URL = 'https://api.alopu.src/'
 const LOGIN_URL = API_URL + 'sessions/create/'
 const SIGNUP_URL = API_URL + 'users/'
 

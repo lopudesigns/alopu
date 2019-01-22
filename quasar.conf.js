@@ -15,7 +15,7 @@ module.exports = function (ctx) {
       'vue-awesome',
       'vue-img-inputer',
       'vue-socket.io',
-      'vue-select',
+      'alopuselect',
       'vue-resource',
       'vue2-medium-editor',
       'vue-uuid',

@@ -141,7 +141,7 @@
                 .type(
                   v-if="!optIn('editing')"
                   ) {{ typeString }}
-                v-select.type(
+                alopuselect.type(
                   v-if="anyOptsIn(['edited', 'editing'])"
                   v-show="optIn('editing')" 
                   :pushTags="false"
@@ -277,7 +277,7 @@
             .option.pill.realms
               .values(v-if="!optIn('editing')")
                 .value(v-for="realm in thingMutable.realms") {{ realm }}
-              v-select(
+              alopuselect(
                 @click='showOptionsPerm' 
                 v-show="optIn('editing')" 
                 :pushTags="true" 
@@ -302,7 +302,7 @@
               .label(v-if="!optIn('editing')") type
               .value(v-if="!optIn('editing')") {{ thingMutable.type }}
               //- input(ref="realmsinput" v-model="thingMutable.realms" placeholder="eg. food, vegan, icecream")
-              v-select(
+              alopuselect(
                 @click='showOptionsPerm' 
                 v-show="optIn('editing')" 
                 :pushTags="true" 
@@ -327,7 +327,7 @@
               //- .label(v-else) thing
               .value(v-if="!optIn('editing')") {{ thingMutable.thing }}
               //- input(ref="realmsinput" v-model="thingMutable.realms" placeholder="eg. food, vegan, icecream")
-              v-select(
+              alopuselect(
                 @click='showOptionsPerm' 
                 v-show="optIn('editing')" 
                 :pushTags="true" 
@@ -354,7 +354,7 @@
               //- .label(v-else) thing
               .value(v-if="!optIn('editing')") {{ thingMutable.thing }}
               //- input(ref="realmsinput" v-model="thingMutable.realms" placeholder="eg. food, vegan, icecream")
-              v-select( 
+              alopuselect( 
                 @click='showOptionsPerm' 
                 v-show="optIn('editing')" 
                 :pushTags="true" 
@@ -388,7 +388,7 @@
                   .value(v-for="price in thingMutable.contract") {{ price.fiat }} per {{ price.multipler}} {{ price.unit }}'s
                 .contract-list(v-else-if="optIn('editing')")
                   .price(v-for="(price, index) in thingMutable.contract")
-                    //- v-select(
+                    //- alopuselect(
                       class="thing-select" 
                       inputStore 
                       v-show="optIn('editing') && price.type == 'thing'" 
@@ -396,7 +396,7 @@
                       :options="currencies" 
                       placeholder="currency"
                       )
-                    v-select(
+                    alopuselect(
                       class="source-select" 
                       :inputStore="true" 
                       v-show="optIn('editing')" 
@@ -404,7 +404,7 @@
                       :options="currencies" 
                       placeholder="payee"
                       )
-                    v-select(
+                    alopuselect(
                       class="currency-select" 
                       :inputStore="true" 
                       v-show="optIn('editing')" 
@@ -413,7 +413,7 @@
                       placeholder="thing"
                       )
                     .denominator $
-                    v-select(
+                    alopuselect(
                       class="ammount-select" 
                       :inputStore="true" 
                       v-show="optIn('editing')" 
@@ -424,7 +424,7 @@
                       placeholder="amount"
                       )
                     .signifier per
-                    v-select(
+                    alopuselect(
                       class="multiplier-select" 
                       :inputStore="true" 
                       v-show="optIn('editing')" 
@@ -434,7 +434,7 @@
                       :options="realms" 
                       placeholder="amount"
                       )
-                    v-select(
+                    alopuselect(
                       class="unit-select" 
                       :inputStore="true" 
                       v-show="optIn('editing')" 
@@ -442,7 +442,7 @@
                       :options="priceUnits" 
                       placeholder="unit"
                       )
-                    v-select(
+                    alopuselect(
                       class="destination-select" 
                       :inputStore="true" 
                       v-show="optIn('editing')" 
@@ -554,7 +554,7 @@
           .option-positioner(v-if="optIn('postas')")
             .option.pill.postas
               //- .label(v-show="optIn('editing')") post as:
-              v-select(
+              alopuselect(
                 :inputStore="true"
                 placeholder="post as"
                 :taggable="true"
@@ -5550,7 +5550,7 @@ export default {
               &.contract,
               &.postas,
               &.privacy
-                .v-select
+                .alopuselect
                   $font-size: 1rem
                   font-size: $font-size
                   line-height: $font-size
@@ -5652,7 +5652,7 @@ export default {
                         background-color: inherit
 
                 .price
-                  .v-select
+                  .alopuselect
                     &.currency-select
                       min-width: 90px
                       max-width: 90px
@@ -5668,7 +5668,7 @@ export default {
                     .form-control
                       text-align: center
                 &.pill
-                  .v-select
+                  .alopuselect
                     // display: none
                     .dropdown-toggle
                       flex-direction: column
@@ -5714,7 +5714,7 @@ export default {
         
         
           
-    .v-select
+    .alopuselect
       $font-size: 1rem
       font-size: $font-size
       line-height: $font-size
@@ -5836,7 +5836,7 @@ export default {
                 >.type-container
                   >.type-positioner
                     >.type
-                      &.v-select
+                      &.alopuselect
                         >.dropdown-toggle
                           >.input-container
                             >.form-control

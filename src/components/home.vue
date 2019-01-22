@@ -28,7 +28,7 @@
 				//- ref="logo"
 				//- @click="spinLogo"
 			.intro-text-container
-				.intro-text Welcome to Omgora, a platform for anything or everything
+				.intro-text Welcome to Alopu, a platform for anything and everything
 					//- span(style="padding: 0px 5px; font-size: 16px;") Anything 
 					//- | and 
 					//- span(style="padding: 0px 5px; font-size: 16px;") Everything 
