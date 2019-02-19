@@ -4,26 +4,35 @@ var fs = require('fs')
 // var utils = require('utils')
 
 module.exports = function (ctx) {
+	
+	var plugins = []
+	files = fs.readdirSync(path.join(__dirname, 'src', '/plugins/') )
+	for(file in files){
+		if(/.*\.js/.test(files[file]) && files[file].indexOf('ignore') < 0){
+			plugins.push(files[file].slice(0,files[file].length-3))
+		}
+	}
   return {
-    // app plugins (/src/plugins)
-    plugins: [
-      'i18n',
-      'axios',
-      'circular-json',
-      'mapbox-gl',
-      'mapbox-gl-vue',
-      'vue-awesome',
-      'vue-img-inputer',
-      'vue-socket.io',
-      'alopuselect',
-      'vue-resource',
-      'vue2-medium-editor',
-      'vue-uuid',
-      'eventHub',
-      'globalCss',
-      'vue-particles',
-      'vuedraggable'
-    ],
+		// app plugins (/src/plugins)
+    // plugins: [
+		// 	'i18n',
+    //   'axios',
+    //   'circular-json',
+    //   'mapbox-gl',
+    //   'mapbox-gl-vue',
+    //   'vue-awesome',
+    //   'vue-img-inputer',
+    //   'vue-socket.io',
+    //   'alopuselect',
+    //   'vue-resource',
+    //   'vue2-medium-editor',
+    //   'vue-uuid',
+    //   'globalCss',
+    //   'vue-particles',
+    //   'vuedraggable'
+    //   'eventHub',
+    // ],
+		plugins,
     css: [
       'app.styl'
     ],

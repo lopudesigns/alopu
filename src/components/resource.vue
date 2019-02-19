@@ -301,8 +301,6 @@ export default {
       // }
     }
   },
-  beforeCreate(){
-  },
   created () {
     this.neighboursMutable = this.neighbours
     if(typeof this.resourceMutable == 'object'){

@@ -152,47 +152,47 @@ export default [
   //   component: trade
 	// },
   {
-    path: '/ico',
+    path: '/docs',
     name: 'ico',
     component: ico
   },
   {
-    path: '/ico/things',
+    path: '/docs/things',
     name: 'icoThings',
     component: icoThings
   },
   {
-    path: '/ico/things/styles',
+    path: '/docs/things/styles',
     name: 'icoThingsStyles',
   component: icoThingsStyles
   },
 	{
-		path: '/ico/things/options',
+		path: '/docs/things/options',
 		name: 'icoThingsOptions',
 		component: icoThingsOptions
 	},
   {
-    path: '/ico/things/inventories',
+    path: '/docs/things/inventories',
     name: 'inventoryStyles',
     component: inventoryStyles
   },
   {
-    path: '/ico/things/sandbox',
+    path: '/docs/things/sandbox',
     name: 'icoSandboxThing',
     component: icoSandboxThing
   },
   {
-    path: '/ico/things/manifest',
+    path: '/docs/things/manifest',
     name: 'icoManifestThing',
     component: icoManifestThing
   },
   {
-    path: '/ico/status',
+    path: '/docs/status',
     name: 'status',
     component: status
   },
   {
-    path: '/ico/things/object(s|)',
+    path: '/docs/things/object(s|)',
     name: 'icoobject',
     component: object
   },
@@ -202,7 +202,7 @@ export default [
     component: object
   },
   {
-    path: '/ico/things/array(s|)',
+    path: '/docs/things/array(s|)',
     name: 'icoarray',
     component: array
   },
@@ -212,7 +212,7 @@ export default [
     component: array
   },
   {
-    path: '/ico/alopu',
+    path: '/docs/alopu',
     name: 'icoalopu',
     component: alopu
   },

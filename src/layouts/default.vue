@@ -189,6 +189,11 @@ export default {
 			mainDrawer: false,
 		}
 	},
+	mounted(){
+    if (this.$route.hash) {
+    	this.scrollTo(this.$route.hash)
+    }
+	},
 	methods: {
 	},
 	props:{

@@ -16,8 +16,20 @@ const Router = new VueRouter({
 
   // Leave as is and change from quasar.conf.js instead!
   mode: process.env.VUE_ROUTER_MODE,
-  base: process.env.VUE_ROUTER_BASE,
-  scrollBehavior: () => ({ y: 0 }),
+	base: process.env.VUE_ROUTER_BASE,
+	// scrollBehavior(to, from){
+	// 	return { y: 0 }
+	// },
+	scrollBehavior (to, from, savedPosition) {
+		//https://router.vuejs.org/guide/advanced/scroll-behavior.html
+		if (to.hash) {
+			return { selector: to.hash }
+		} else if (savedPosition) {
+			return savedPosition;
+		} else {
+			return { x: 0, y: 0 }
+		}
+	},
   routes
 })
 

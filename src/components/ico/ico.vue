@@ -1,10 +1,5 @@
 <template lang='pug'>
-	.ico
-		intro
-		.banner-container
-			.banner-position-helper
-				.banner-sizer
-			
+	.ico(id="docs" ref="docs")
 		.contents-container
 			.contents-positioner
 				template(
@@ -17,8 +12,13 @@
 									q-btn(
 										color="primary"
 										:label="link.text"
-										@click="$router.push(link.url)"
+										@click="link.show = !link.show"
 									)
+							//- component(
+							//- 	v-if="link.show"
+							//- 	:is="link.component"
+							//- )
+										//- @click="$router.push(link.url)"
 </template>
 
 <script>
@@ -96,6 +96,7 @@ export default {
 		// }
 	},
 	created () {
+		console.log('this.$refs', this.$refs)
 		// if(this.count !== 0){
 		//   this.getObjects({
 		//     count: this.count,

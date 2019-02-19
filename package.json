@@ -1,6 +1,6 @@
 {
-  "name": "dingern",
-  "version": "1.0.0",
+  "name": "alopu",
+  "version": "2.0.0",
   "description": "A Quasar Framework app",
   "productName": "Quasar App",
   "cordovaId": "org.cordova.quasar.app",
@@ -12,15 +12,15 @@
     "start": "quasar dev",
     "comment": "building is static that's why start runs dev start",
     "build": "quasar build",
-		"dist": "npm run build",
-		"commit" : "git add . ; git commit -m 'ready'",
-		"push" : "npm run commit ; git push origin dev",
-		"pull" : "git pull origin dev"
+    "dist": "npm run build",
+    "commit": "git add . ; git commit -m 'ready'",
+    "push": "npm run commit ; git push origin dev",
+    "pull": "git pull origin dev"
   },
   "dependencies": {
     "axios": "^0.17.1",
-    "vue": "github:lopugit/alopu-vue#v2.5.16",
-    "vue-i18n": "^7.3.3"
+    "vue-i18n": "^7.3.3",
+    "vue": "github:lopugit/alopu-vue#v2.5.16"
   },
   "devDependencies": {
     "@firebase/firestore": "^0.4.1",
